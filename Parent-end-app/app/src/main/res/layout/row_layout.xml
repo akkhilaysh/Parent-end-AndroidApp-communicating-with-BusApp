@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="#ebf5fa" >
+<ImageView
+    android:id="@+id/pic"
+    android:layout_width="100dp"
+    android:layout_height="75dp"
+    android:layout_alignParentLeft="true"
+    android:src="@mipmap/ic_launcher"
+
+    android:layout_margin="3dp"/>
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="175dp"
+        android:layout_height="75dp"
+        android:layout_toRightOf="@+id/pic"
+        android:gravity="center"
+        android:text="Harshad Shinde"
+android:textSize="20sp"
+        android:layout_margin="3dp"
+        android:textColor="#42aaff"/>
+    <TextView
+        android:id="@+id/s_childStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="75dp"
+        android:layout_toRightOf="@+id/name"
+        android:layout_alignParentRight="true"
+        android:text="Onboard"
+        android:gravity="center"
+        android:textColor="#8eb7d9"
+
+        android:layout_margin="3dp"/>
+    <View
+        android:id="@+id/border"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#8fd7fd"
+        android:layout_below="@+id/pic"
+        android:layout_alignParentStart="true" />
+
+</RelativeLayout>

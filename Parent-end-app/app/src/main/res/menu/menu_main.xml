@@ -1,0 +1,22 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.user.myapplication.MainActivity">
+    <item
+        android:id="@+id/action_change_child"
+        android:icon="@drawable/switch1"
+        android:title="Change Child"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_logout"
+        android:icon="@drawable/logout"
+        android:title="Logout"
+        app:showAsAction="ifRoom" />
+
+    <item android:id="@+id/action_contact"
+        android:icon="@drawable/contact"
+        android:title="Contact School"
+        app:showAsAction="ifRoom"/>
+
+
+</menu>

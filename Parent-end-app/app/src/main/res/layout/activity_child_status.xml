@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/swipe_status"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.user.probbc.ChildStatusActivity"
+    android:background="#ebf5fa">
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <!--
+    <TextView
+        android:id="@+id/contact_us"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Contact School"
+        android:textSize="22sp"
+        android:textColor="#0696f5"
+        android:background="@drawable/edit_background"
+        android:padding="10dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true" />
+        -->
+    <TextView
+        android:id="@+id/battery"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Battery   %  "
+        android:textSize="22sp"
+        android:textColor="#0696f5"
+        android:background="@drawable/edit_background"
+        android:padding="10dp"
+        android:gravity="center"
+        android:foregroundGravity="center"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        />
+
+    <!-- <de.hdodenhof.circleimageview.CircleImageView
+         xmlns:app="http://schemas.android.com/apk/res-auto"
+         android:layout_width="150dp"
+         android:layout_height="130dp"
+         android:id="@+id/studentPic_statusActivity"
+         android:src="@mipmap/child"
+         android:layout_marginTop="98dp"
+         android:layout_alignParentTop="true"
+         android:layout_centerHorizontal="true"
+         app:civ_border_width="1dp"
+         app:paddingEnd="20dp"
+         app:paddingStart="20dp"
+         app:civ_border_color="#289bf2"/>  -->
+
+     <ImageView
+         android:layout_width="150dp"
+         android:layout_height="95dp"
+         android:id="@+id/studentPic_statusActivity"
+         android:src="@mipmap/ic_launcher"
+         android:layout_marginTop="98dp"
+         android:layout_alignParentTop="true"
+         android:layout_centerHorizontal="true"
+         />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Student Name"
+        android:textColor="#42aaff"
+        android:textSize="30sp"
+        android:id="@+id/studentName_statusActivity"
+        android:layout_below="@+id/studentPic_statusActivity"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Status"
+        android:textSize="15sp"
+        android:id="@+id/status_statusActivity"
+        android:layout_below="@+id/studentName_statusActivity"
+        android:layout_centerHorizontal="true"
+        android:textColor="#42aaff"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hello User"
+        android:id="@+id/welcome"
+        android:textSize="20sp"
+        android:textColor="#066dea"
+        android:foregroundGravity="center"
+        android:gravity="center" />
+
+</RelativeLayout>
+</android.support.v4.widget.SwipeRefreshLayout>
