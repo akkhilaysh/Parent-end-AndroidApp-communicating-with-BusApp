@@ -2,10 +2,12 @@ package com.example.user.probbc;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -40,9 +42,10 @@ public class ChildStatusActivity extends Activity {
 
     SwipeRefreshLayout swipeStatus;
     public int i;
+    TextView wc;
     String studentID;
-
-
+    String bbcLogin;
+    private SharedPreferences sharedPreferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,8 +53,10 @@ public class ChildStatusActivity extends Activity {
 
         getActionBar().setHomeButtonEnabled(true);
         getActionBar().setIcon(R.drawable.bbc);
+        wc=(TextView)findViewById(R.id.welcome);
         studentImage_statusActivity=(ImageView)findViewById(R.id.studentPic_statusActivity);
 
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(ChildStatusActivity.this);
         studentName_statusActivity=(TextView)findViewById(R.id.studentName_statusActivity);
         studentStatus_statusActivity=(TextView)findViewById(R.id.status_statusActivity);
         swipeStatus=(SwipeRefreshLayout)findViewById(R.id.swipe_status);
@@ -59,6 +64,11 @@ public class ChildStatusActivity extends Activity {
 
         Bundle bundle=getIntent().getExtras();
         int studentPic_statusActivity=bundle.getInt("Picture");
+
+        SharedPreferences sharedPreferences=getSharedPreferences(LoginActivity.MyPREFERENCES, 0);
+        bbcLogin=sharedPreferences.getString(LoginActivity.BBCLoginID,"1");
+        wc.setText("Welcome User "+bbcLogin);
+
         String studentName=bundle.getString("Name");
         String status=bundle.getString("Status");
         studentID=bundle.getString("StudentID");
@@ -230,10 +240,23 @@ public class ChildStatusActivity extends Activity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_change_child) {
             startActivity(new Intent(ChildStatusActivity.this,SelectChildActivity.class));
+            finish();
             return true;
         }else if(id==R.id.action_logout)
         {
-            startActivity(new Intent(ChildStatusActivity.this,LoginActivity.class));
+
+            SharedPreferences.Editor editor=sharedPreferences.edit();
+            editor.putString("bbcLoginid","0");
+            editor.putBoolean("LoggedIn",false);
+            //editor.clear();
+            editor.commit();
+            startActivity(new Intent(ChildStatusActivity.this, LoginActivity.class));
+
+            finish();
+            return true;
+        }else if(id==R.id.action_contact)
+        {
+            startActivity(new Intent(ChildStatusActivity.this,ContactActivity.class));
             return true;
         }
 

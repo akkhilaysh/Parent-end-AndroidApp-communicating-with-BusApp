@@ -44,7 +44,7 @@ public class  SelectChildActivity extends Activity {
     String[] studentIDS=new String[10];
     String[] names=new String[10]; //{"Harshad Shinde","Ankit Verma","Ashwath Kumar","Akkhilaysh Shetty"};
     String[] sts=new String[10]; //{"Onboard","Reached","At Home","Onboard"};
-    int[] pics=new int[]{R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher,R.mipmap.ic_launcher};
+    int[] pics=new int[]{R.mipmap.bbc,R.mipmap.bbc,R.mipmap.bbc,R.mipmap.bbc};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +53,7 @@ public class  SelectChildActivity extends Activity {
         selectionList=(ListView)findViewById(R.id.listView);
         swipe=(SwipeRefreshLayout)findViewById(R.id.swipeChildList);
         SharedPreferences sharedPreferences=getSharedPreferences(LoginActivity.MyPREFERENCES, 0);
-        bbcLogin=sharedPreferences.getString(LoginActivity.BBCLoginID,"2");
+        bbcLogin=sharedPreferences.getString(LoginActivity.BBCLoginID,"1");
         studentListJSON=new ArrayList<StudentStatusModel>();
 
 
@@ -69,6 +69,7 @@ public class  SelectChildActivity extends Activity {
                 SelectChildListIntent.putExtra("Status", sts[position]);
                 SelectChildListIntent.putExtra("StudentID",studentIDS[position]);
                 startActivity(SelectChildListIntent);
+                finish();
 
 
             }

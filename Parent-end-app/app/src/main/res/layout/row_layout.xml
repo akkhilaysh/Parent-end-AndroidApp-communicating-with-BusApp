@@ -4,10 +4,10 @@
     android:background="#ebf5fa" >
 <ImageView
     android:id="@+id/pic"
-    android:layout_width="100dp"
-    android:layout_height="75dp"
+    android:layout_width="80dp"
+    android:layout_height="70dp"
     android:layout_alignParentLeft="true"
-    android:src="@mipmap/ic_launcher"
+    android:src="@mipmap/bbc"
 
     android:layout_margin="3dp"/>
 

@@ -10,7 +10,15 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".LoginActivity_User"
     android:background="#ebf5fa"
+    android:gravity="center"
     >
+    <ImageView
+        android:id="@+id/img_logo"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:src="@drawable/bbc"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"/>
 
     <EditText
         android:layout_margin="10dp"

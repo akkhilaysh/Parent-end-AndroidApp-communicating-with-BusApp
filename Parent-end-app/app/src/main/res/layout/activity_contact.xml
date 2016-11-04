@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.user.probbc.ContactActivity">
+    <ImageView
+        android:id="@+id/contact_img_logo"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:src="@drawable/bbc"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"/>
+ <TextView
+     android:id="@+id/emailat"
+     android:layout_marginTop="30dp"
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:gravity="center"
+     android:layout_below="@id/contact_img_logo"
+     android:textSize="20sp"
+     android:textColor="#066dea"
+     android:fontFamily="times"
+     android:text="EMail"/>
+    <TextView
+        android:id="@+id/contact_email"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_below="@id/emailat"
+        android:textSize="30sp"
+        android:textColor="#042f69"
+        android:fontFamily="times"
+        android:text="shindeh22@gmail.com"/>
+    <TextView
+android:id="@+id/contact_phone"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:layout_below="@id/contact_email"
+        android:textColor="#066dea"
+        android:fontFamily="times"
+        android:text="Talk to Us"/>
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_below="@id/contact_phone"
+        android:textSize="30sp"
+        android:textColor="#042f69"
+        android:fontFamily="times"
+        android:text="9730520373"/>
+
+
+
+
+</RelativeLayout>

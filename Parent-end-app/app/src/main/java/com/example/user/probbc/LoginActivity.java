@@ -14,6 +14,7 @@ import android.os.AsyncTask;
 
 import android.os.Bundle;
 
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -43,6 +44,7 @@ public class LoginActivity extends Activity{
     ProgressDialog dialog;
     public static final String MyPREFERENCES = "MyPrefs" ;
     public static final String BBCLoginID = "bbcLoginid";
+    private SharedPreferences sharedPreferences;
 
 
     @Override
@@ -53,8 +55,8 @@ public class LoginActivity extends Activity{
         btnReg=(Button)findViewById(R.id.btn_Register);
         user=(EditText)findViewById(R.id.login_email);
         pass=(EditText)findViewById(R.id.login_password);
-        user.setText("tgparmar75@gmail.com");
-        pass.setText("development");
+
+         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(LoginActivity.this);
 
 
         btnReg.setOnClickListener(new View.OnClickListener() {
@@ -109,9 +111,9 @@ public class LoginActivity extends Activity{
 
                 } else if (isConnected()) {
 
-                    dialog = new ProgressDialog(LoginActivity.this, R.style.AppTheme);
+                    dialog = new ProgressDialog(LoginActivity.this, R.style.MyTheme);
                     dialog.setCancelable(false);
-                    dialog.setProgressStyle(android.R.style.Widget_ProgressBar);
+
                     dialog.setMessage("Logging in....");
                     dialog.show();
 
@@ -262,17 +264,15 @@ public class LoginActivity extends Activity{
         @Override
         protected void onPostExecute(String result) {
             try {
-                SharedPreferences  sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
-                SharedPreferences.Editor editor = sharedpreferences.edit();
                 if (!(result.equals("0"))) {
-                    editor.putString(BBCLoginID, result);
-                    Boolean t=editor.commit();
-                    SharedPreferences sp=getSharedPreferences(MyPREFERENCES,0);
-                    Log.d("SP",sp.getString(BBCLoginID,"Default"));
-                    Toast.makeText(LoginActivity.this, "Login Successfull!", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(LoginActivity.this, SelectChildActivity.class));
+                SharedPreferences.Editor editor=sharedPreferences.edit();
+                editor.putString(BBCLoginID, result);
+                editor.putBoolean("LoggedIn", true);
+                editor.commit();
 
-                    finish();
+                Toast.makeText(LoginActivity.this, "Login Successfull!", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(LoginActivity.this, SelectChildActivity.class));
+                finish();
                     if (dialog.isShowing()) {
                         dialog.dismiss();
                     }
@@ -301,6 +301,10 @@ public class LoginActivity extends Activity{
                 }
 
 
+            }finally {
+                if (dialog.isShowing()) {
+                    dialog.dismiss();
+                }
             }
         }
 
